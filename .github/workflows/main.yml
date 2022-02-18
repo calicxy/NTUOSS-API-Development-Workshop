@@ -1,0 +1,25 @@
+# This is the .github/workflows/main.yml
+
+name: Deploy
+
+# Events that trigger a workflow:
+# https://docs.github.com/en/actions/reference/events-that-trigger-workflows
+on:
+  push:
+    branches:
+      - deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Deploying to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: "cal-api-part2"
+          heroku_email: "xinyunchoy@gmail.com"
+          healthcheck: "https://cal-api-part2.herokuapp.com/healthcheck"
+          rollbackonhealthcheckfailed: true

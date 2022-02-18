@@ -1,6 +1,6 @@
 # This is the .github/workflows/main.yml
 
-name: Deploy
+name: Deploying the App
 
 # Events that trigger a workflow:
 # https://docs.github.com/en/actions/reference/events-that-trigger-workflows
@@ -19,7 +19,7 @@ jobs:
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: "ntuoss-api-workshop"
-          heroku_email: "jaygupta2607@gmail.com"
-          healthcheck: "https://ntuoss-api-workshop.herokuapp.com/healthcheck"
+          heroku_app_name: "cal-api-part2"
+          heroku_email: "xinyunchoy@gmail.com"
+          healthcheck: "https://cal-api-part2.herokuapp.com/healthcheck"
           rollbackonhealthcheckfailed: true
